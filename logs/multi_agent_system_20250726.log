@@ -2553,3 +2553,228 @@ Processing CAPA query: Q1: How many open CAPAs have been reported in the last ye
 2025-07-26 20:02:44 - mcp_modules.mcp_email - INFO - _send_mock_email:64 -   Body Length: 2849
 2025-07-26 20:02:44 - mcp_modules.mcp_email - INFO - _save_mock_email_log:112 - Mock email logged to: logs\mock_emails.log
 2025-07-26 20:02:44 - agents.email_agent - INFO - send_summary_email:47 - Email sent successfully
+2025-07-26 20:09:11 - root - INFO - setup_logging:79 - Logging initialized - Level: INFO, File: logs\multi_agent_system_20250726.log
+2025-07-26 20:09:11 - root - INFO - setup_logging:79 - Logging initialized - Level: INFO, File: logs\multi_agent_system_20250726.log
+2025-07-26 20:09:18 - root - INFO - setup_logging:79 - Logging initialized - Level: INFO, File: logs\multi_agent_system_20250726.log
+2025-07-26 20:09:19 - root - INFO - setup_logging:79 - Logging initialized - Level: INFO, File: logs\multi_agent_system_20250726.log
+2025-07-26 20:09:19 - root - INFO - setup_logging:79 - Logging initialized - Level: INFO, File: logs\multi_agent_system_20250726.log
+2025-07-26 20:09:19 - mcp_modules.mcp_capa - INFO - __init__:16 - Initialized mcp_capa module
+2025-07-26 20:09:19 - mcp_modules.mcp_neo4j - INFO - __init__:21 - Initialized mcp_neo4j module
+2025-07-26 20:09:19 - mcp_modules.mcp_vector - INFO - __init__:22 - Initialized mcp_vector module
+2025-07-26 20:09:19 - models.embeddings_handler - INFO - __init__:20 - Initialized EmbeddingsHandler with Gemini
+2025-07-26 20:09:19 - mcp_modules.mcp_email - INFO - __init__:27 - Initialized mcp_email module (Mock Mode: True)
+2025-07-26 20:09:19 - run_langgraph - INFO - run:236 - Starting workflow for query: Please provide how many open CAPA are present in the last one year. Also, provide how many investiga...
+2025-07-26 20:09:19 - run_langgraph - INFO - orchestrate:63 - Starting orchestrator agent
+2025-07-26 20:09:19 - agents.orchestrator - INFO - break_down_query:47 - Breaking down user query using Chain-of-Thought
+2025-07-26 20:09:22 - agents.orchestrator - INFO - break_down_query:136 - Successfully broke down query into sub-questions
+2025-07-26 20:09:22 - run_langgraph - INFO - orchestrate:71 - Query breakdown completed: 3 sub-questions
+2025-07-26 20:09:22 - run_langgraph - INFO - process_capa:81 - Starting CAPA agent
+2025-07-26 20:09:22 - agents.capa_agent - INFO - process_query:24 - 
+
+Processing CAPA query: Q1: How many open CAPAs have been reported in the last year?
+2025-07-26 20:09:22 - mcp_modules.mcp_capa - INFO - read_capa_data:22 - Reading CAPA data from: data/capa_data.txt
+2025-07-26 20:09:22 - mcp_modules.mcp_capa - INFO - read_capa_data:77 - Successfully read 20 CAPA records
+2025-07-26 20:09:22 - agents.capa_agent - INFO - process_query:56 - Successfully processed CAPA query. Found 0 open CAPAs
+2025-07-26 20:09:22 - run_langgraph - INFO - process_capa:105 - CAPA agent processing completed
+2025-07-26 20:09:22 - run_langgraph - INFO - process_neo4j:117 - Starting Neo4j agent
+2025-07-26 20:09:22 - agents.neo4j_agent - INFO - get_investigations:21 - Retrieving investigations for brand: Avino, CAPA IDs: []
+2025-07-26 20:09:22 - mcp_modules.mcp_neo4j - INFO - query_investigations:148 - Querying investigations for brand: Avino, CAPA IDs: []
+2025-07-26 20:09:22 - mcp_modules.mcp_neo4j - INFO - query_investigations:168 - Found 3 investigations for brand Avino
+2025-07-26 20:09:22 - mcp_modules.mcp_neo4j - INFO - get_capa_details:179 - Getting CAPA details for: CAPA2024001
+2025-07-26 20:09:22 - mcp_modules.mcp_neo4j - INFO - get_batch_info:199 - Getting batch info for: AV2024001
+2025-07-26 20:09:23 - mcp_modules.mcp_neo4j - INFO - get_capa_details:179 - Getting CAPA details for: CAPA2024002
+2025-07-26 20:09:23 - mcp_modules.mcp_neo4j - INFO - get_batch_info:199 - Getting batch info for: AV2024002
+2025-07-26 20:09:23 - mcp_modules.mcp_neo4j - INFO - get_capa_details:179 - Getting CAPA details for: CAPA2024003
+2025-07-26 20:09:23 - mcp_modules.mcp_neo4j - WARNING - get_capa_details:188 - CAPA CAPA2024003 not found
+2025-07-26 20:09:23 - mcp_modules.mcp_neo4j - INFO - get_batch_info:199 - Getting batch info for: AV2024003
+2025-07-26 20:09:23 - agents.neo4j_agent - INFO - get_investigations:52 - Successfully retrieved 3 investigations for Avino
+2025-07-26 20:09:23 - run_langgraph - INFO - process_neo4j:138 - Neo4j agent processing completed
+2025-07-26 20:09:23 - run_langgraph - INFO - process_vector:150 - Starting Vector agent
+2025-07-26 20:09:23 - agents.vector_agent - INFO - search_clinical_trials:23 - Searching clinical trials for brand: Avino
+2025-07-26 20:09:23 - models.embeddings_handler - WARNING - _generate_gemini_embedding:68 - Invalid response from Gemini embedding API
+2025-07-26 20:09:23 - models.embeddings_handler - WARNING - generate_embedding:40 - Gemini embedding failed, using fallback
+2025-07-26 20:09:23 - models.embeddings_handler - INFO - _generate_fallback_embedding:96 - Using fallback embedding generation
+2025-07-26 20:09:23 - models.embeddings_handler - WARNING - _generate_fallback_embedding:108 - sentence-transformers not available, using mock embedding
+2025-07-26 20:09:23 - mcp_modules.mcp_vector - INFO - vector_search:120 - Performing vector search with top_k=5, filters={'brand': 'Avino'}
+2025-07-26 20:09:24 - mcp_modules.mcp_vector - INFO - vector_search:162 - Vector search returned 4 results
+2025-07-26 20:09:24 - models.embeddings_handler - INFO - generate_summary:246 - Generating summary using Gemini
+2025-07-26 20:09:24 - google_genai.models - INFO - generate_content:5770 - AFC is enabled with max remote calls: 10.
+2025-07-26 20:09:31 - google_genai.models - INFO - generate_content:5781 - AFC remote call 1 is done.
+2025-07-26 20:09:31 - models.embeddings_handler - INFO - generate_summary:269 - Successfully generated summary
+2025-07-26 20:09:31 - agents.vector_agent - INFO - search_clinical_trials:65 - Successfully found 4 clinical trial documents for Avino
+2025-07-26 20:09:31 - run_langgraph - INFO - process_vector:173 - Vector agent processing completed
+2025-07-26 20:09:31 - run_langgraph - INFO - consolidate_results:185 - Consolidating results
+2025-07-26 20:09:31 - agents.orchestrator - INFO - generate_final_summary:163 - Generating final consolidated summary
+2025-07-26 20:09:34 - agents.orchestrator - INFO - generate_final_summary:211 - Successfully generated final summary
+2025-07-26 20:09:34 - run_langgraph - INFO - consolidate_results:226 - Results consolidation completed
+2025-07-26 20:09:34 - run_langgraph - INFO - run:249 - Workflow completed successfully
+2025-07-26 20:09:34 - root - INFO - setup_logging:79 - Logging initialized - Level: INFO, File: logs\multi_agent_system_20250726.log
+2025-07-26 20:24:23 - root - INFO - setup_logging:79 - Logging initialized - Level: INFO, File: logs\multi_agent_system_20250726.log
+2025-07-26 20:24:23 - root - INFO - setup_logging:79 - Logging initialized - Level: INFO, File: logs\multi_agent_system_20250726.log
+2025-07-26 20:24:38 - root - INFO - setup_logging:79 - Logging initialized - Level: INFO, File: logs\multi_agent_system_20250726.log
+2025-07-26 20:24:38 - root - INFO - setup_logging:79 - Logging initialized - Level: INFO, File: logs\multi_agent_system_20250726.log
+2025-07-26 20:24:39 - root - INFO - setup_logging:79 - Logging initialized - Level: INFO, File: logs\multi_agent_system_20250726.log
+2025-07-26 20:24:39 - mcp_modules.mcp_capa - INFO - __init__:16 - Initialized mcp_capa module
+2025-07-26 20:24:39 - mcp_modules.mcp_neo4j - INFO - __init__:21 - Initialized mcp_neo4j module
+2025-07-26 20:24:39 - mcp_modules.mcp_vector - INFO - __init__:22 - Initialized mcp_vector module
+2025-07-26 20:24:40 - models.embeddings_handler - INFO - __init__:20 - Initialized EmbeddingsHandler with Gemini
+2025-07-26 20:24:40 - mcp_modules.mcp_email - INFO - __init__:27 - Initialized mcp_email module (Mock Mode: True)
+2025-07-26 20:24:40 - run_langgraph - INFO - run:236 - Starting workflow for query: Please provide how many open CAPA are present in the last one year. Also, provide how many investiga...
+2025-07-26 20:24:40 - run_langgraph - INFO - orchestrate:63 - Starting orchestrator agent
+2025-07-26 20:24:40 - agents.orchestrator - INFO - break_down_query:47 - Breaking down user query using Chain-of-Thought
+2025-07-26 20:24:43 - agents.orchestrator - INFO - break_down_query:136 - Successfully broke down query into sub-questions
+2025-07-26 20:24:43 - run_langgraph - INFO - orchestrate:71 - Query breakdown completed: 3 sub-questions
+2025-07-26 20:24:43 - run_langgraph - INFO - process_capa:81 - Starting CAPA agent
+2025-07-26 20:24:43 - agents.capa_agent - INFO - process_query:24 - 
+
+Processing CAPA query: Q1: How many open CAPAs are present within the last year, categorized by status and timeframe?
+2025-07-26 20:24:43 - mcp_modules.mcp_capa - INFO - read_capa_data:22 - Reading CAPA data from: data/capa_data.txt
+2025-07-26 20:24:43 - mcp_modules.mcp_capa - INFO - read_capa_data:77 - Successfully read 20 CAPA records
+2025-07-26 20:24:43 - agents.capa_agent - INFO - process_query:56 - Successfully processed CAPA query. Found 0 open CAPAs
+2025-07-26 20:24:43 - run_langgraph - INFO - process_capa:105 - CAPA agent processing completed
+2025-07-26 20:24:43 - run_langgraph - INFO - process_neo4j:117 - Starting Neo4j agent
+2025-07-26 20:24:43 - agents.neo4j_agent - INFO - get_investigations:21 - Retrieving investigations for brand: Avino, CAPA IDs: []
+2025-07-26 20:24:43 - mcp_modules.mcp_neo4j - INFO - query_investigations:148 - Querying investigations for brand: Avino, CAPA IDs: []
+2025-07-26 20:24:43 - mcp_modules.mcp_neo4j - INFO - query_investigations:168 - Found 3 investigations for brand Avino
+2025-07-26 20:24:43 - mcp_modules.mcp_neo4j - INFO - get_capa_details:179 - Getting CAPA details for: CAPA2024001
+2025-07-26 20:24:43 - mcp_modules.mcp_neo4j - INFO - get_batch_info:199 - Getting batch info for: AV2024001
+2025-07-26 20:24:43 - mcp_modules.mcp_neo4j - INFO - get_capa_details:179 - Getting CAPA details for: CAPA2024002
+2025-07-26 20:24:43 - mcp_modules.mcp_neo4j - INFO - get_batch_info:199 - Getting batch info for: AV2024002
+2025-07-26 20:24:43 - mcp_modules.mcp_neo4j - INFO - get_capa_details:179 - Getting CAPA details for: CAPA2024003
+2025-07-26 20:24:43 - mcp_modules.mcp_neo4j - WARNING - get_capa_details:188 - CAPA CAPA2024003 not found
+2025-07-26 20:24:43 - mcp_modules.mcp_neo4j - INFO - get_batch_info:199 - Getting batch info for: AV2024003
+2025-07-26 20:24:43 - agents.neo4j_agent - INFO - get_investigations:52 - Successfully retrieved 3 investigations for Avino
+2025-07-26 20:24:43 - run_langgraph - INFO - process_neo4j:138 - Neo4j agent processing completed
+2025-07-26 20:24:43 - run_langgraph - INFO - process_vector:150 - Starting Vector agent
+2025-07-26 20:24:43 - agents.vector_agent - INFO - search_clinical_trials:23 - Searching clinical trials for brand: Avino
+2025-07-26 20:24:44 - models.embeddings_handler - WARNING - _generate_gemini_embedding:68 - Invalid response from Gemini embedding API
+2025-07-26 20:24:44 - models.embeddings_handler - WARNING - generate_embedding:40 - Gemini embedding failed, using fallback
+2025-07-26 20:24:44 - models.embeddings_handler - INFO - _generate_fallback_embedding:96 - Using fallback embedding generation
+2025-07-26 20:24:44 - models.embeddings_handler - WARNING - _generate_fallback_embedding:108 - sentence-transformers not available, using mock embedding
+2025-07-26 20:24:44 - mcp_modules.mcp_vector - INFO - vector_search:120 - Performing vector search with top_k=5, filters={'brand': 'Avino'}
+2025-07-26 20:24:44 - mcp_modules.mcp_vector - INFO - vector_search:162 - Vector search returned 4 results
+2025-07-26 20:24:44 - models.embeddings_handler - INFO - generate_summary:246 - Generating summary using Gemini
+2025-07-26 20:24:44 - google_genai.models - INFO - generate_content:5770 - AFC is enabled with max remote calls: 10.
+2025-07-26 20:24:55 - google_genai.models - INFO - generate_content:5781 - AFC remote call 1 is done.
+2025-07-26 20:24:55 - models.embeddings_handler - INFO - generate_summary:269 - Successfully generated summary
+2025-07-26 20:24:55 - agents.vector_agent - INFO - search_clinical_trials:65 - Successfully found 4 clinical trial documents for Avino
+2025-07-26 20:24:55 - run_langgraph - INFO - process_vector:173 - Vector agent processing completed
+2025-07-26 20:24:55 - run_langgraph - INFO - consolidate_results:185 - Consolidating results
+2025-07-26 20:24:55 - agents.orchestrator - INFO - generate_final_summary:163 - Generating final consolidated summary
+2025-07-26 20:24:58 - agents.orchestrator - INFO - generate_final_summary:213 - Successfully generated final summary
+2025-07-26 20:24:58 - run_langgraph - INFO - consolidate_results:226 - Results consolidation completed
+2025-07-26 20:24:58 - run_langgraph - INFO - run:249 - Workflow completed successfully
+2025-07-26 20:24:58 - root - INFO - setup_logging:79 - Logging initialized - Level: INFO, File: logs\multi_agent_system_20250726.log
+2025-07-26 20:27:03 - root - INFO - setup_logging:79 - Logging initialized - Level: INFO, File: logs\multi_agent_system_20250726.log
+2025-07-26 20:27:03 - root - INFO - setup_logging:79 - Logging initialized - Level: INFO, File: logs\multi_agent_system_20250726.log
+2025-07-26 20:27:12 - root - INFO - setup_logging:79 - Logging initialized - Level: INFO, File: logs\multi_agent_system_20250726.log
+2025-07-26 20:27:12 - root - INFO - setup_logging:79 - Logging initialized - Level: INFO, File: logs\multi_agent_system_20250726.log
+2025-07-26 20:27:12 - root - INFO - setup_logging:79 - Logging initialized - Level: INFO, File: logs\multi_agent_system_20250726.log
+2025-07-26 20:27:12 - mcp_modules.mcp_capa - INFO - __init__:16 - Initialized mcp_capa module
+2025-07-26 20:27:12 - mcp_modules.mcp_neo4j - INFO - __init__:21 - Initialized mcp_neo4j module
+2025-07-26 20:27:12 - mcp_modules.mcp_vector - INFO - __init__:22 - Initialized mcp_vector module
+2025-07-26 20:27:13 - models.embeddings_handler - INFO - __init__:20 - Initialized EmbeddingsHandler with Gemini
+2025-07-26 20:27:13 - mcp_modules.mcp_email - INFO - __init__:27 - Initialized mcp_email module (Mock Mode: True)
+2025-07-26 20:27:13 - run_langgraph - INFO - run:236 - Starting workflow for query: Please provide how many open CAPA are present in the last one year. Also, provide how many investiga...
+2025-07-26 20:27:13 - run_langgraph - INFO - orchestrate:63 - Starting orchestrator agent
+2025-07-26 20:27:13 - agents.orchestrator - INFO - break_down_query:47 - Breaking down user query using Chain-of-Thought
+2025-07-26 20:27:16 - agents.orchestrator - INFO - break_down_query:136 - Successfully broke down query into sub-questions
+2025-07-26 20:27:16 - run_langgraph - INFO - orchestrate:71 - Query breakdown completed: 3 sub-questions
+2025-07-26 20:27:16 - run_langgraph - INFO - process_capa:81 - Starting CAPA agent
+2025-07-26 20:27:16 - agents.capa_agent - INFO - process_query:24 - 
+
+Processing CAPA query: Q1: How many CAPAs have an open status and were created within the last year?
+2025-07-26 20:27:16 - mcp_modules.mcp_capa - INFO - read_capa_data:22 - Reading CAPA data from: data/capa_data.txt
+2025-07-26 20:27:16 - mcp_modules.mcp_capa - INFO - read_capa_data:77 - Successfully read 20 CAPA records
+2025-07-26 20:27:16 - agents.capa_agent - INFO - process_query:56 - Successfully processed CAPA query. Found 0 open CAPAs
+2025-07-26 20:27:16 - run_langgraph - INFO - process_capa:105 - CAPA agent processing completed
+2025-07-26 20:27:16 - run_langgraph - INFO - process_neo4j:117 - Starting Neo4j agent
+2025-07-26 20:27:16 - agents.neo4j_agent - INFO - get_investigations:21 - Retrieving investigations for brand: Avino, CAPA IDs: []
+2025-07-26 20:27:16 - mcp_modules.mcp_neo4j - INFO - query_investigations:148 - Querying investigations for brand: Avino, CAPA IDs: []
+2025-07-26 20:27:16 - mcp_modules.mcp_neo4j - INFO - query_investigations:168 - Found 3 investigations for brand Avino
+2025-07-26 20:27:16 - mcp_modules.mcp_neo4j - INFO - get_capa_details:179 - Getting CAPA details for: CAPA2024001
+2025-07-26 20:27:16 - mcp_modules.mcp_neo4j - INFO - get_batch_info:199 - Getting batch info for: AV2024001
+2025-07-26 20:27:16 - mcp_modules.mcp_neo4j - INFO - get_capa_details:179 - Getting CAPA details for: CAPA2024002
+2025-07-26 20:27:16 - mcp_modules.mcp_neo4j - INFO - get_batch_info:199 - Getting batch info for: AV2024002
+2025-07-26 20:27:16 - mcp_modules.mcp_neo4j - INFO - get_capa_details:179 - Getting CAPA details for: CAPA2024003
+2025-07-26 20:27:16 - mcp_modules.mcp_neo4j - WARNING - get_capa_details:188 - CAPA CAPA2024003 not found
+2025-07-26 20:27:16 - mcp_modules.mcp_neo4j - INFO - get_batch_info:199 - Getting batch info for: AV2024003
+2025-07-26 20:27:16 - agents.neo4j_agent - INFO - get_investigations:52 - Successfully retrieved 3 investigations for Avino
+2025-07-26 20:27:16 - run_langgraph - INFO - process_neo4j:138 - Neo4j agent processing completed
+2025-07-26 20:27:16 - run_langgraph - INFO - process_vector:150 - Starting Vector agent
+2025-07-26 20:27:16 - agents.vector_agent - INFO - search_clinical_trials:23 - Searching clinical trials for brand: Avino
+2025-07-26 20:27:17 - models.embeddings_handler - WARNING - _generate_gemini_embedding:68 - Invalid response from Gemini embedding API
+2025-07-26 20:27:17 - models.embeddings_handler - WARNING - generate_embedding:40 - Gemini embedding failed, using fallback
+2025-07-26 20:27:17 - models.embeddings_handler - INFO - _generate_fallback_embedding:96 - Using fallback embedding generation
+2025-07-26 20:27:17 - models.embeddings_handler - WARNING - _generate_fallback_embedding:108 - sentence-transformers not available, using mock embedding
+2025-07-26 20:27:17 - mcp_modules.mcp_vector - INFO - vector_search:120 - Performing vector search with top_k=5, filters={'brand': 'Avino'}
+2025-07-26 20:27:17 - mcp_modules.mcp_vector - INFO - vector_search:162 - Vector search returned 4 results
+2025-07-26 20:27:17 - models.embeddings_handler - INFO - generate_summary:246 - Generating summary using Gemini
+2025-07-26 20:27:17 - google_genai.models - INFO - generate_content:5770 - AFC is enabled with max remote calls: 10.
+2025-07-26 20:27:25 - google_genai.models - INFO - generate_content:5781 - AFC remote call 1 is done.
+2025-07-26 20:27:25 - models.embeddings_handler - INFO - generate_summary:269 - Successfully generated summary
+2025-07-26 20:27:25 - agents.vector_agent - INFO - search_clinical_trials:65 - Successfully found 4 clinical trial documents for Avino
+2025-07-26 20:27:25 - run_langgraph - INFO - process_vector:173 - Vector agent processing completed
+2025-07-26 20:27:25 - run_langgraph - INFO - consolidate_results:185 - Consolidating results
+2025-07-26 20:27:25 - agents.orchestrator - INFO - generate_final_summary:163 - Generating final consolidated summary
+2025-07-26 20:27:28 - agents.orchestrator - INFO - generate_final_summary:213 - Successfully generated final summary
+2025-07-26 20:27:28 - run_langgraph - INFO - consolidate_results:226 - Results consolidation completed
+2025-07-26 20:27:28 - run_langgraph - INFO - run:249 - Workflow completed successfully
+2025-07-26 20:27:28 - root - INFO - setup_logging:79 - Logging initialized - Level: INFO, File: logs\multi_agent_system_20250726.log
+2025-07-26 20:28:27 - root - INFO - setup_logging:79 - Logging initialized - Level: INFO, File: logs\multi_agent_system_20250726.log
+2025-07-26 20:28:27 - root - INFO - setup_logging:79 - Logging initialized - Level: INFO, File: logs\multi_agent_system_20250726.log
+2025-07-26 20:29:12 - root - INFO - setup_logging:79 - Logging initialized - Level: INFO, File: logs\multi_agent_system_20250726.log
+2025-07-26 20:29:12 - root - INFO - setup_logging:79 - Logging initialized - Level: INFO, File: logs\multi_agent_system_20250726.log
+2025-07-26 20:29:12 - mcp_modules.mcp_capa - INFO - __init__:16 - Initialized mcp_capa module
+2025-07-26 20:29:12 - mcp_modules.mcp_neo4j - INFO - __init__:21 - Initialized mcp_neo4j module
+2025-07-26 20:29:12 - mcp_modules.mcp_vector - INFO - __init__:22 - Initialized mcp_vector module
+2025-07-26 20:29:13 - models.embeddings_handler - INFO - __init__:20 - Initialized EmbeddingsHandler with Gemini
+2025-07-26 20:29:13 - mcp_modules.mcp_email - INFO - __init__:27 - Initialized mcp_email module (Mock Mode: True)
+2025-07-26 20:29:13 - run_langgraph - INFO - run:236 - Starting workflow for query: Please provide how many open CAPA are present in the last one year. Also, provide how many investiga...
+2025-07-26 20:29:13 - run_langgraph - INFO - orchestrate:63 - Starting orchestrator agent
+2025-07-26 20:29:13 - agents.orchestrator - INFO - break_down_query:47 - Breaking down user query using Chain-of-Thought
+2025-07-26 20:29:15 - agents.orchestrator - INFO - break_down_query:136 - Successfully broke down query into sub-questions
+2025-07-26 20:29:15 - run_langgraph - INFO - orchestrate:71 - Query breakdown completed: 3 sub-questions
+2025-07-26 20:29:15 - run_langgraph - INFO - process_capa:81 - Starting CAPA agent
+2025-07-26 20:29:15 - agents.capa_agent - INFO - process_query:24 - 
+
+Processing CAPA query: Q1: How many open CAPAs have been reported in the last year?
+2025-07-26 20:29:15 - mcp_modules.mcp_capa - INFO - read_capa_data:22 - Reading CAPA data from: data/capa_data.txt
+2025-07-26 20:29:15 - mcp_modules.mcp_capa - INFO - read_capa_data:77 - Successfully read 20 CAPA records
+2025-07-26 20:29:15 - agents.capa_agent - INFO - process_query:56 - Successfully processed CAPA query. Found 0 open CAPAs
+2025-07-26 20:29:15 - run_langgraph - INFO - process_capa:105 - CAPA agent processing completed
+2025-07-26 20:29:15 - run_langgraph - INFO - process_neo4j:117 - Starting Neo4j agent
+2025-07-26 20:29:15 - agents.neo4j_agent - INFO - get_investigations:21 - Retrieving investigations for brand: Avino, CAPA IDs: []
+2025-07-26 20:29:15 - mcp_modules.mcp_neo4j - INFO - query_investigations:148 - Querying investigations for brand: Avino, CAPA IDs: []
+2025-07-26 20:29:15 - mcp_modules.mcp_neo4j - INFO - query_investigations:168 - Found 3 investigations for brand Avino
+2025-07-26 20:29:15 - mcp_modules.mcp_neo4j - INFO - get_capa_details:179 - Getting CAPA details for: CAPA2024001
+2025-07-26 20:29:15 - mcp_modules.mcp_neo4j - INFO - get_batch_info:199 - Getting batch info for: AV2024001
+2025-07-26 20:29:16 - mcp_modules.mcp_neo4j - INFO - get_capa_details:179 - Getting CAPA details for: CAPA2024002
+2025-07-26 20:29:16 - mcp_modules.mcp_neo4j - INFO - get_batch_info:199 - Getting batch info for: AV2024002
+2025-07-26 20:29:16 - mcp_modules.mcp_neo4j - INFO - get_capa_details:179 - Getting CAPA details for: CAPA2024003
+2025-07-26 20:29:16 - mcp_modules.mcp_neo4j - WARNING - get_capa_details:188 - CAPA CAPA2024003 not found
+2025-07-26 20:29:16 - mcp_modules.mcp_neo4j - INFO - get_batch_info:199 - Getting batch info for: AV2024003
+2025-07-26 20:29:16 - agents.neo4j_agent - INFO - get_investigations:52 - Successfully retrieved 3 investigations for Avino
+2025-07-26 20:29:16 - run_langgraph - INFO - process_neo4j:138 - Neo4j agent processing completed
+2025-07-26 20:29:16 - run_langgraph - INFO - process_vector:150 - Starting Vector agent
+2025-07-26 20:29:16 - agents.vector_agent - INFO - search_clinical_trials:23 - Searching clinical trials for brand: Avino
+2025-07-26 20:29:17 - models.embeddings_handler - WARNING - _generate_gemini_embedding:68 - Invalid response from Gemini embedding API
+2025-07-26 20:29:17 - models.embeddings_handler - WARNING - generate_embedding:40 - Gemini embedding failed, using fallback
+2025-07-26 20:29:17 - models.embeddings_handler - INFO - _generate_fallback_embedding:96 - Using fallback embedding generation
+2025-07-26 20:29:17 - models.embeddings_handler - WARNING - _generate_fallback_embedding:108 - sentence-transformers not available, using mock embedding
+2025-07-26 20:29:17 - mcp_modules.mcp_vector - INFO - vector_search:120 - Performing vector search with top_k=5, filters={'brand': 'Avino'}
+2025-07-26 20:29:17 - mcp_modules.mcp_vector - INFO - vector_search:162 - Vector search returned 4 results
+2025-07-26 20:29:17 - models.embeddings_handler - INFO - generate_summary:246 - Generating summary using Gemini
+2025-07-26 20:29:17 - google_genai.models - INFO - generate_content:5770 - AFC is enabled with max remote calls: 10.
+2025-07-26 20:29:26 - google_genai.models - INFO - generate_content:5781 - AFC remote call 1 is done.
+2025-07-26 20:29:26 - models.embeddings_handler - INFO - generate_summary:269 - Successfully generated summary
+2025-07-26 20:29:26 - agents.vector_agent - INFO - search_clinical_trials:65 - Successfully found 4 clinical trial documents for Avino
+2025-07-26 20:29:26 - run_langgraph - INFO - process_vector:173 - Vector agent processing completed
+2025-07-26 20:29:26 - run_langgraph - INFO - consolidate_results:185 - Consolidating results
+2025-07-26 20:29:26 - agents.orchestrator - INFO - generate_final_summary:163 - Generating final consolidated summary
+2025-07-26 20:29:30 - agents.orchestrator - INFO - generate_final_summary:213 - Successfully generated final summary
+2025-07-26 20:29:30 - run_langgraph - INFO - consolidate_results:226 - Results consolidation completed
+2025-07-26 20:29:30 - run_langgraph - INFO - run:249 - Workflow completed successfully
+2025-07-26 20:29:30 - root - INFO - setup_logging:79 - Logging initialized - Level: INFO, File: logs\multi_agent_system_20250726.log
+2025-07-26 20:31:33 - root - INFO - setup_logging:79 - Logging initialized - Level: INFO, File: logs\multi_agent_system_20250726.log
+2025-07-26 20:31:33 - root - INFO - setup_logging:79 - Logging initialized - Level: INFO, File: logs\multi_agent_system_20250726.log

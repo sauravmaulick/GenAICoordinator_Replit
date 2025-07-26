@@ -190,7 +190,31 @@ def main():
         # Consolidated Summary
         if 'final_summary' in results:
             st.subheader("📈 Consolidated Summary")
-            st.write(results['final_summary'])
+            # st.write(results['final_summary'])
+            if "final_summary" in results:
+                final_summary = json.loads(results["final_summary"])
+
+                st.subheader("🧾 Executive Summary")
+                st.write(final_summary.get("Executive Summary", ""))
+
+                st.subheader("📌 Key Findings")
+                # st.markdown(final_summary.get("Key Findings", ""))
+                st.markdown("\n".join([f"- {point}" for point in final_summary.get("Key Findings", "")]))
+
+                st.subheader("📊 Detailed Results")
+
+                with st.expander("CAPA Analysis"):
+                    st.write(final_summary["Detailed Results"].get("CAPA Analysis", ""))
+
+                with st.expander("Investigations"):
+                    st.write(final_summary["Detailed Results"].get("Investigations", ""))
+
+                with st.expander("Clinical Trials"):
+                    st.write(final_summary["Detailed Results"].get("Clinical Trials", ""))
+
+                with st.expander("Pharmacokinetic Analysis"):
+                    st.write(final_summary["Detailed Results"].get("Pharmacokinetic Analysis", ""))
+
         
         # Email confirmation
         st.subheader("📧 Email Summary")

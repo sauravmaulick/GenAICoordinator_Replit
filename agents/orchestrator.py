@@ -208,6 +208,8 @@ class OrchestratorAgent:
             )
 
             if response.text:
+                # breakdown = json.loads(response.text)
+                # print(f"\n\nBreakdown: {breakdown}")
                 logger.info("Successfully generated final summary")
                 return response.text
             else:
