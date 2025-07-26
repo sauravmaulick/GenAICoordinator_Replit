@@ -1,0 +1,90 @@
+I want to create a multi-agent GenAI system using Python, LangGraph, and FastMCP. The front end should be built using Streamlit. I will use Google Gemini as the LLM (not OpenAI). The core use case is as follows:
+
+---
+
+## 🧾 USER QUERY:
+
+"Please provide how many open CAPA present in last one year. Also, provide how many investigation were created for brand Avino and provide brand Avino’s Clinical Trial summary."
+
+---
+
+## 🔁 AGENT-to-AGENT FLOW (with CoT + FastMCP + Human-in-the-Loop)
+
+### Step 1: Chain-of-Thought (CoT) Breakdown by Gemini Orchestrator Agent
+
+Gemini LLM breaks the user prompt into 3 sub-questions:
+
+- **Q1**: "How many open CAPA are present in the last one year?"
+- **Q2**: "Fetch Investigation details, based on CAPA number which I got from Q1 and for brand 'Avino' from Neo4j. Include CAPA ID, Investigation Name, Brand, Batch Number, PDF Link"
+- **Q3**: "Using PDF link(s) from Neo4j, go to AstraDB vector DB, retrieve embedding-based summary of clinical trial content for 'Avino'"
+
+---
+
+### Step 2: Agent Execution using FastMCP Architecture
+Each sub-question is handled by an MCP module:
+
+- **MCP1** → Text File Reader Agent → Parses `capa_data.txt`, filters open CAPAs by date.
+- **MCP2** → Neo4j Agent → Connects to Neo4j, fetches investigation details using Cypher queries.
+- **MCP3** → Vector Search Agent → Uses Astra DB, fetches relevant embedded PDF summaries using Milvus or Astra embedding vector DB.
+- All responses go back to the Orchestrator Agent.
+
+---
+
+### Step 3: Email Action with Human-in-the-Loop
+Once Q1–Q3 results are consolidated, the summary is shown to the user.
+
+If the user agrees to send a mail:
+
+- **MCP4** → Mail Agent → Uses SMTP or Gmail API to send the consolidated summary.
+
+---
+
+## 💾 Input Data Requirements
+
+- `capa_data.txt` → Contains CAPA info: CAPA_ID, Title, Region, Status, Date, etc.
+- `neo4j` → Preloaded graph with nodes: Investigation, CAPA, PDF link (Cypher accessible).
+- `astra DB / Milvus` → Contains pre-embedded PDFs (Clinical Trials), searchable by brand name like "Avino".
+
+---
+
+## 🔐 LLM and Tools Configuration
+
+- LLM: **Gemini API** key required (`google.generativeai`)
+- DB: PostgreSQL / Neo4j / Astra Vector DB
+- Embedding: Gemini Text Embeddings or Sentence Transformers (if needed)
+- Email: SMTP or SendGrid API
+
+---
+
+## 📂 Project Structure
+
+```bash
+agent2agent_app/
+├── streamlit_app.py           # UI to enter query and show result
+├── run_langgraph.py           # Main entry point for LangGraph execution
+├── agents/
+│   ├── orchestrator.py        # Gemini CoT logic
+│   ├── capa_agent.py          # Reads text CAPA file
+│   ├── neo4j_agent.py         # Connects to Neo4j for investigations
+│   ├── vector_agent.py        # Astra DB vector search & summarization
+│   └── email_agent.py         # Sends mail after confirmation
+├── mcp_modules/
+│   ├── mcp_capa.py
+│   ├── mcp_neo4j.py
+│   ├── mcp_vector.py
+│   └── mcp_email.py
+├── data/
+│   ├── capa_data.txt
+│   └── pdfs/
+├── models/
+│   └── embeddings/
+├── requirements.txt
+└── .env                       # Stores GEMINI_API_KEY, DB credentials
+
+✅ Goals
+Use Gemini + LangGraph for CoT-based breakdown.
+Each question routed via MCP (FastMCP style).
+Store & parse data from file, Neo4j, and vector DB.
+Generate final response and get human approval before sending email.
+
+Please generate all required files, sample data, and Streamlit frontend so I can copy and run it quickly.

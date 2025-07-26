@@ -1,0 +1,18 @@
+# Ignore virtual environment
+myenv/
+myvenv/
+
+# Ignore environment variable files
+.env
+
+# Byte-compiled / cache files
+__pycache__/
+*.py[cod]
+*.pyo
+*.pyd
+
+# VS Code
+.vscode/
+
+# macOS and Linux hidden files
+.DS_Store

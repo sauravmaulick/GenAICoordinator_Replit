@@ -1,0 +1,21 @@
+CAPA_ID	Title	Region	Status	Date	Priority	Assigned_To	Department
+CAPA2024001	Improve Batch Documentation Process	North America	Open	2024-01-15	High	Quality Team	Quality Assurance
+CAPA2024002	Enhance Manufacturing Controls	Europe	Open	2024-02-10	Medium	Manufacturing Team	Manufacturing
+CAPA2024003	Update SOPs for Clinical Data Management	Asia Pacific	Open	2024-03-05	High	Clinical Team	Clinical Affairs
+CAPA2024004	Implement Environmental Monitoring System	North America	In Progress	2024-01-20	Medium	Facilities Team	Facilities
+CAPA2024005	Revise Supplier Qualification Process	Europe	Open	2024-02-28	Low	Procurement Team	Supply Chain
+CAPA2024006	Strengthen Computer System Validation	Global	Open	2024-03-15	High	IT Team	Information Technology
+CAPA2024007	Improve Deviation Investigation Process	North America	Open	2024-04-02	Medium	Quality Team	Quality Assurance
+CAPA2024008	Enhance Training Program for GMP	Europe	Closed	2023-12-10	Medium	Training Team	Human Resources
+CAPA2024009	Update Risk Assessment Procedures	Asia Pacific	Open	2024-01-30	High	Risk Management Team	Quality Assurance
+CAPA2024010	Implement New Labeling System	North America	Open	2024-02-15	Medium	Packaging Team	Manufacturing
+CAPA2024011	Improve Laboratory Equipment Calibration	Europe	In Progress	2024-03-20	Low	Lab Team	Quality Control
+CAPA2024012	Enhance Document Control System	Global	Open	2024-04-10	High	Document Control Team	Quality Assurance
+CAPA2024013	Update Cleaning Validation Protocol	North America	Open	2024-01-25	Medium	Validation Team	Manufacturing
+CAPA2024014	Implement Corrective Action Tracking	Asia Pacific	Open	2024-03-10	High	Quality Team	Quality Assurance
+CAPA2024015	Improve Vendor Audit Process	Europe	Closed	2023-11-15	Low	Audit Team	Quality Assurance
+CAPA2024016	Enhance Data Integrity Controls	Global	Open	2024-04-05	High	Data Integrity Team	Quality Assurance
+CAPA2024017	Update Stability Testing Procedures	North America	Open	2024-02-20	Medium	Stability Team	Quality Control
+CAPA2024018	Implement New HVAC System	Europe	In Progress	2024-01-10	Low	Engineering Team	Facilities
+CAPA2024019	Improve Change Control Process	Asia Pacific	Open	2024-03-25	High	Change Control Team	Quality Assurance
+CAPA2024020	Enhance Batch Record Review	North America	Open	2024-04-15	Medium	Production Team	Manufacturing

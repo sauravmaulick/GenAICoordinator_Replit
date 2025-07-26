@@ -1,0 +1,9 @@
+google-genai
+langgraph
+numpy
+pandas
+streamlit
+langchain   
+typing-extensions
+google-generativeai
+load_dotenv
