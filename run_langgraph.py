@@ -29,10 +29,10 @@ class WorkflowState(TypedDict):
 class MultiAgentWorkflow:
     def __init__(self):
         self.orchestrator = OrchestratorAgent()
-        self.capa_agent = CapaAgent()
-        self.neo4j_agent = Neo4jAgent()
-        self.vector_agent = VectorAgent()
-        self.email_agent = EmailAgent()
+        # self.capa_agent = CapaAgent()
+        # self.neo4j_agent = Neo4jAgent()
+        # self.vector_agent = VectorAgent()
+        # self.email_agent = EmailAgent()
         
         # Build the workflow graph
         self.workflow = self._build_workflow()

@@ -198,8 +198,8 @@ def main():
                 st.write(final_summary.get("Executive Summary", ""))
 
                 st.subheader("📌 Key Findings")
-                # st.markdown(final_summary.get("Key Findings", ""))
-                st.markdown("\n".join([f"- {point}" for point in final_summary.get("Key Findings", "")]))
+                st.markdown(final_summary.get("Key Findings", ""))
+                # st.markdown("\n".join([f"- {point}" for point in final_summary.get("Key Findings", "")]))
 
                 st.subheader("📊 Detailed Results")
 
