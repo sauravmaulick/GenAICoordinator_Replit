@@ -3,7 +3,7 @@ import logging
 from typing import Dict, Any, List
 from datetime import datetime, timedelta
 import pandas as pd
-from mcp_modules.mcp_capa import MCPCapaModule
+from mcp_modules.mcp_capa_mock import MCPCapaModule
 
 logger = logging.getLogger(__name__)
 

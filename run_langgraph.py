@@ -29,10 +29,10 @@ class WorkflowState(TypedDict):
 class MultiAgentWorkflow:
     def __init__(self):
         self.orchestrator = OrchestratorAgent()
-        # self.capa_agent = CapaAgent()
-        # self.neo4j_agent = Neo4jAgent()
-        # self.vector_agent = VectorAgent()
-        # self.email_agent = EmailAgent()
+        self.capa_agent = CapaAgent()
+        self.neo4j_agent = Neo4jAgent()
+        self.vector_agent = VectorAgent()
+        self.email_agent = EmailAgent()
         
         # Build the workflow graph
         self.workflow = self._build_workflow()
@@ -69,7 +69,7 @@ class MultiAgentWorkflow:
             breakdown = await self.orchestrator.break_down_query(state["query"]) ####
             state["breakdown"] = breakdown
             logger.info(f"Query breakdown completed: {len(breakdown.get('sub_questions', []))} sub-questions")
-            
+
         except Exception as e:
             logger.error(f"Error in orchestrator: {str(e)}", exc_info=True)
             state["error"] = f"Orchestrator error: {str(e)}"
